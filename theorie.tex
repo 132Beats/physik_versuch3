@@ -1,0 +1,93 @@
+\section{Theorie}
+
+Leiten Sie hier die für das Verständnis der Versuche nötigen Gleichungen und ihre
+Anwendung auf die Messaufgaben her.
+
+
+In der Versuchsreihe werden statistische Unsicherheit, Messfehler, Fehlerfortpflanzung und die Gaußkurve untersucht.
+
+\subsection{Galton-Brett}
+\subsubsection{Beschreibung des Galton-Bretts}
+Das Galton-Brett besteht aus Stahlstiften, welche auf ein Brett angebracht sind. In der ersten Reihe befindet sich 1 Stift, in der zweiten 2, etc. 
+Somit ergibt sich, dass der Index der Reihe (ab 1 gezählt) gleich der Anzahl der Stahlstifte der Reihe ist:
+\begin{equation}
+    Reihe_n = n
+\end{equation}
+
+\subsubsection{Wahrscheinlichkeitsverhalten der Kugel bei Kontakt mit Stahlstift}
+Es ist davon auszugehen, dass das System symmetrisch aufgebaut ist (Formation der Stifte ist ein gleichseitiges Dreieck), wodurch sich keine Vorzugsrichtung für die fallende Kugel ergibt. Somit ergeben sich folgende Wahrscheinlichkeiten bei dem Kontakt der Kugel mit einem Stift in Fallrichtung:
+\begin{equation}
+        p_{links} = 0,50 = 50\%
+\end{equation}
+\begin{equation}
+    p_{rechts} = 0,50 = 50\%       
+\end{equation}
+Durch die Addition von $p_{links}$ und $p_{rechts}$ ergibt sich der gesamte Ergebnisraum $P(\Omega_{Stift})$:
+
+\begin{equation}
+    P(\Omega_{Stift}) = p_{links} + p_{rechts} = 0,50 + 0,50 = 1
+\end{equation}
+Da $p_{links}$ und $p_{rechts}$ unvereinbar sind, ihre Wahrscheinlichkeit größer als 0 und $P(\Omega_{Stift}) = 1 $, werden hier für jeden Stahlstift alle 3 Axiome von Kolmogorov erfüllt. Es werden alle möglichen Ereignisse beim Kontakt der Kugel mit einem Stahlstift in $P(\Omega_{Stift})$ abgebildet.
+
+\subsubsection{Übertragung auf das Galton-Brett}
+Das Galton Brett ist eine Verkettung von $n$ Wiederholungen in $P(\Omega_{Stift})$ für $n=Anzahl\ Reihen$. Hierdurch wird eine Binominalverteilung der Ereignisse herbeigeführt. Diese lässt sich berechnen durch:
+\begin{equation}
+    x=\binom{n}{k}=\frac{n!}{k!(n-k)!}
+\end{equation}
+Diese Binominalverteilung lässt sich übertragen auf das Galton-Brett, wobei $x$ die Verteilung der Ereignisse auf die jede Kollision der Kugel mit einem Stahlstift im Brett darstellt. Hier wird $n$ als die aktuelle Reihe angesehen und $k$ ist die Stelle des vorhergehenden Stiftes in der horizontalen. Übertragen auf den Binominalkoeffizienten lässt sich folgende Formel herleiten:
+\begin{equation}
+    x=\binom{n-1}{k}=\frac{(n-1)!}{k!(n-1-k)!}
+\end{equation}
+Würde man $x$ für jede Kollision berechnen, ergibt sich ein Pascalsches Dreieck:
+
+HIER KÖNNTE IHRE WERBUNG STEHEN!!! (oder auch nur ein Bild)
+
+Die Wahrscheinlichkeit für jede Kollision in der Reihe $n$ lässt sich berechnen, indem $x_{Position}$ durch die Summe aller $x$ in Reihe $n$ geteilt wird:
+
+\begin{equation}
+    p_{Treffer}=\frac{x_{Position}}{\sum_{i=0}^n x_i}
+\end{equation}
+
+\subsubsection{Erwartung an die Durchführung}
+Die Erwartung an die Versuchsdurchführung mit dem Galton-Brett ist, dass sich die Kugeln in der letzten Reihe (Auffangbehälter) binominal verteilen. Das Galton-Brett im Versuch hat 14 Reihen (=14 Auffangbehälter), wodurch sich folgende, optimale Verteilung ergeben sollte:
+
+\begin{table}[thb]
+    \centering
+    \csvloop{
+      file=tables/optimale_binomvert.csv,
+      no head,
+      column count=15,
+      before reading=\begin{tabular}{l|l|l|l|l|l|l|l|l|l|l|l|l|l|l},
+      /csv/separator = semicolon,
+      command = \csvlinetotablerow,
+      late after line=\\\hline,
+      late after first line=\\\hline,
+      late after last line=\\,
+      respect percent = true,
+      after reading=\end{tabular}
+    }
+    \caption{Erwartungswert am Galton-Brett}
+  \end{table}
+
+\subsection{Freier Fall}
+Beim Versuch des Freien Falles wird die Zeit gestoppt, die ein Massekörper benötgt, eine Distanz von 86,2cm im freien Fall zu überwinden. Hierbei wird die Zeit gemessen, die der Massekörper benötgt, diese Distanz zu überwinden.
+Ziel des Versuches ist es, Messungenauigkeiten herauszufinden und die entsprechenden statistischen Fehler zu berechnen.
+
+\subsubsection{Physikalischer Hintergrund}
+Beim freien Fall wird eine gleichförmige Beschleunigung von $g=9,81\frac{m}{s^{2}}$ angenommen. Durch das Weg-Zeit-Gesetz bildet sich folgende Formel, durch welche sich die Strecke berechnen lässt:
+\begin{equation}
+    s(t)=\frac{1}{2}g*t^{2}
+\end{equation}
+Umgeformt nach $t$:
+\begin{equation}
+    t_{Fall}=\sqrt{\frac{2h}{g}}
+\end{equation}
+$h$ repräsentiert die Fallhöhe in $m$ (Meter).
+
+\subsubsection{Berechnung der idealen Fallzeit}
+Im Versuch beträgt die Fallhöhe 856mm (+- 1mm), was 0,856m entspricht. Hieraus ergibt sich in die obige Formel eingesetzt:
+\begin{equation}
+    t_{Fall}=\sqrt{\frac{2*0,856m}{9,81\frac{m}{s^{2}}}}=0,418s
+\end{equation}
+Der Erwartungswert der Messung liegt im Idealfall somit bei 0,418s, was 418ms entspricht.
+

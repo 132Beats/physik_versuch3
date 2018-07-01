@@ -1,0 +1,40 @@
+\section{Durchführung der Messung}
+ Geben Sie hier die Messresultate in tabellarischer Form an.
+
+\subsection{Galton-Brett}
+Für den Versuch am Galton-Brett wurden 50 Eisenkugeln nacheinander am Einlass eingeführt und nach erfolgreichem Durchlauf aller Kugeln die Anzahl in jedem Ausgabefach gezählt. Dieser Wert wurde neben dem Namen des Durchführenden dokumentiert.
+Dieser Vorgang wurde 10 mal im Wechsel des Durchführenden durchgeführt.
+\newline
+In diesem Versuch wurde das Brett Nr. 4 verwendet.
+
+\subsubsection{Ermittelte Werte}
+Nach erfolgreicher Durchführung der 10 Versuche ergeben sich die folgenden Werte:
+\begin{table}[thb]
+  \centering
+  \hline
+  \csvloop{
+    file=tables/messwerte_galton.csv,
+    no head,
+    column count=17,
+    before reading=\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|l|l|l|l|l|l|l|},
+    /csv/separator = semicolon,
+    command = \csvlinetotablerow,
+    late after line=\\,
+    late after first line=\\\hline,
+    late after last line=\\\hline,
+    respect percent = true,
+    after reading=\end{tabular}
+  }
+  \caption{Messwerte aller Versuche am Galton-Brett}
+\end{table}
+
+\subsection{Freier Fall}
+Beim freien Fall wurde eine Eisenkugel 50 mal zwischen zwei Lichtschranken fallen gelassen. Der Abstand der Lichtschranken betrug 856 +- 1mm.
+Die Abstandsmessung wurde alle 10 Messungen wiederholt.
+
+\subsubsection{Gemessene Werte}
+Auf 50 Wiederholungen der Messung wurden folgende Werte gemessen:
+
+\csvautolongtable[
+  /csv/separator = semicolon,
+]{tables/messwerte_freier_fall.csv}
