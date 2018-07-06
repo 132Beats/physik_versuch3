@@ -1,39 +1,31 @@
 \section{Theorie}
-
-Leiten Sie hier die für das Verständnis der Versuche nötigen Gleichungen und ihre
-Anwendung auf die Messaufgaben her.
-
-
-In der Versuchsreihe werden statistische Unsicherheit, Messfehler, Fehlerfortpflanzung und die Gaußkurve untersucht.
-
-\subsection{Galton-Brett}
-\subsubsection{Beschreibung des Galton-Bretts}
-Das Galton-Brett besteht aus Stahlstiften, welche auf ein Brett angebracht sind. In der ersten Reihe befindet sich 1 Stift, in der zweiten 2, etc. 
-Somit ergibt sich, dass der Index der Reihe (ab 1 gezählt) gleich der Anzahl der Stahlstifte der Reihe ist:
+\subsection{Feder-Masse-Pendel}
+Das Feder-Masse-Pendel besteht aus einer linear-elastischen Feder der Federhärte D, dessen Enden an einem festen Punkt und einem Massestück der Masse m befestigt ist.
+Eine Auslenkung führt zu einer harmonischen Schwingung, da für die Feder das Hookesche Gesetz gilt:
 \begin{equation}
-    Reihe_n = n
+F = -D_{0} \cdot \Delta l 
 \end{equation}
-
-\subsubsection{Wahrscheinlichkeitsverhalten der Kugel bei Kontakt mit Stahlstift}
-Es ist davon auszugehen, dass das System symmetrisch aufgebaut ist (Formation der Stifte ist ein gleichseitiges Dreieck), wodurch sich keine Vorzugsrichtung für die fallende Kugel ergibt. Somit ergeben sich folgende Wahrscheinlichkeiten bei dem Kontakt der Kugel mit einem Stift in Fallrichtung:
+\subsubsection{Schwingungsgleichung des Feder-Masse-Pendels}
+Durch die Lösung der Differentialgleichung, die durch die Ersetzung der Kraft des Hookeschen Gesetzes durch den Newtonschen Ansatz, erhält man folgende Schwingungsgleichung:
 \begin{equation}
-        p_{links} = 0,50 = 50\%
+        x(t) = sin(w_{0}\cdot t)
 \end{equation}
-\begin{equation}
-    p_{rechts} = 0,50 = 50\%       
-\end{equation}
-Durch die Addition von $p_{links}$ und $p_{rechts}$ ergibt sich der gesamte Ergebnisraum $P(\Omega_{Stift})$:
+Daraus ergibt sich die Periodendauer:
 
 \begin{equation}
-    P(\Omega_{Stift}) = p_{links} + p_{rechts} = 0,50 + 0,50 = 1
+    T_{0} = \frac{2\pi}{w_{0}} = 2\pi \sqrt{\frac{m}{D_{0}}}
 \end{equation}
-Da $p_{links}$ und $p_{rechts}$ unvereinbar sind, ihre Wahrscheinlichkeit größer als 0 und $P(\Omega_{Stift}) = 1 $, werden hier für jeden Stahlstift alle 3 Axiome von Kolmogorov erfüllt. Es werden alle möglichen Ereignisse beim Kontakt der Kugel mit einem Stahlstift in $P(\Omega_{Stift})$ abgebildet.
-
-\subsubsection{Übertragung auf das Galton-Brett}
-Das Galton Brett ist eine Verkettung von $n$ Wiederholungen in $P(\Omega_{Stift})$ für $n=Anzahl\ Reihen$. Hierdurch wird eine Binominalverteilung der Ereignisse herbeigeführt. Diese lässt sich berechnen durch:
+\subsection{Mathematisches Pendel}
+Für den Fall geringer Auslenkungs-Winkel gilt die Bewegungsgleichung:
 \begin{equation}
-    x=\binom{n}{k}=\frac{n!}{k!(n-k)!}
+	\frac{\partial ^2 \phi}{\partial t^2} = -\frac{g\cdot \phi}{l}
 \end{equation}
+\subsubsection{Schwingungsgleichung des Mathematischen Pendels}
+Nach Auflösung dieser Differentialgleichung ergibt sich die Periodendauer:
+\begin{equation}
+T_{0} = 2\pi \sqrt{\frac{l}{g}}
+\end{equation}
+\iffalse
 Diese Binominalverteilung lässt sich übertragen auf das Galton-Brett, wobei $x$ die Verteilung der Ereignisse auf die jede Kollision der Kugel mit einem Stahlstift im Brett darstellt. Hier wird $n$ als die aktuelle Reihe angesehen und $k$ ist die Stelle des vorhergehenden Stiftes in der horizontalen. Übertragen auf den Binominalkoeffizienten lässt sich folgende Formel herleiten:
 \begin{equation}
     x=\binom{n-1}{k}=\frac{(n-1)!}{k!(n-1-k)!}
@@ -90,4 +82,4 @@ Im Versuch beträgt die Fallhöhe 856mm (+- 1mm), was 0,856m entspricht. Hieraus
     t_{Fall}=\sqrt{\frac{2*0,856m}{9,81\frac{m}{s^{2}}}}=0,418s
 \end{equation}
 Der Erwartungswert der Messung liegt im Idealfall somit bei 0,418s, was 418ms entspricht.
-
+\fi
