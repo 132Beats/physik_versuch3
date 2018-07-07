@@ -8,7 +8,14 @@ m =: Angehängte Masse
 l =: Auslenkung
 \newline
 n =: Anzahl der Perioden
-
+\newline
+t(i) =: Zeit von n Perioden im i-ten Versuch
+\newline
+m =: Mittelwert der Zeitmessungen
+\newline
+s =: Standardabweichung der Zeitmessungen
+\newline
+s(m) =: Standardabweichung des Mittelwerts
 \subsubsection{Feder Nr. 1}
 \begin{table}[thb]
   \centering
@@ -26,7 +33,7 @@ n =: Anzahl der Perioden
     respect percent = true,
     after reading=\end{tabular}
   }
-  \caption{Alle Zeitmessungen in Sekunden}
+  %\caption{Alle Zeitmessungen in Sekunden}
 \end{table}
 \subsubsection{Feder Nr. 2}
 \begin{table}[thb]
@@ -45,22 +52,30 @@ n =: Anzahl der Perioden
 			respect percent = true,
 			after reading=\end{tabular}
 	}
-\caption{Alle Zeitmessungen in Sekunden}
+%\caption{Alle Zeitmessungen in Sekunden}
 \end{table}
 
 \subsection{Mathematisches Pendel}
-In diesem Experiment wurden an 5 verschieden langen Pendel 10 Periodendauern gemessen.
+In diesem Experiment wurden an 5 verschieden langen Pendeln 10 Periodendauern gemessen.
 \newline
 l =: Länge des Pendels
 \newline
 n =: Anzahl der Perioden
+\newline
+t(i) =: Zeit von n Perioden im i-ten Versuch
+\newline
+m =: Mittelwert der Zeitmessungen
+\newline
+s =: Standardabweichung der Zeitmessungen
+\newline
+s(m) =: Standardabweichung des Mittelwerts
 \begin{table}[thb]
 	\centering
 	\hline
 	\csvloop{
 		file=tables/mpendel.csv,
 		no head,
-		column count=7,
+		column count=10,
 		before reading=\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|l|l|l|l|l|l|l|},
 			/csv/separator = semicolon,
 			command = \csvlinetotablerow,
@@ -70,7 +85,7 @@ n =: Anzahl der Perioden
 			respect percent = true,
 			after reading=\end{tabular}
 	}
-\caption{Alle Zeitmessungen in Sekunden}
+%\caption{Alle Zeitmessungen in Sekunden}
 \end{table}
 
 %\csvautolongtable[
